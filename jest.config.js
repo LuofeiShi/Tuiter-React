@@ -3,6 +3,27 @@ module.exports = {
         '^.+\\.ts?$': 'ts-jest',
     },
     transform: {
-        "^.+\\.jsx?$": "babel-jest"
-    },
+        "^.+\\.jsx?$": "babel-jest",
+    }
 };
+
+// // Sync object
+// /** @type {import('@jest/types').Config.InitialOptions} */
+// const config = {
+//     verbose: true,
+//     transform: {
+//         '^.+\\.ts?$': 'ts-jest',
+//     },
+//     transform: {
+//         "^.+\\.jsx?$": "babel-jest",
+//     }
+// };
+//
+// module.exports = config;
+//
+// // Or async function
+// module.exports = async () => {
+//     return {
+//         verbose: true,
+//     };
+// };
