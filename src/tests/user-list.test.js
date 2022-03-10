@@ -25,7 +25,6 @@ test('user list renders static user array', () => {
 });
 
 test('user list renders async', async () => {
-  const mock = jest.spyOn(axios, 'get');
   const users = await findAllUsers();
   render(
     <HashRouter>
