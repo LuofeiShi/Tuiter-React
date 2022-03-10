@@ -71,7 +71,6 @@ test('tuit list renders static tuit array', () => {
 });
 
 test('tuit list renders async', async () => {
-  // TODO: implement this
     const tuits = await findAllTuits();
     render(
         <HashRouter>
@@ -83,4 +82,16 @@ test('tuit list renders async', async () => {
 
 test('tuit list renders mocked', async () => {
   // TODO: implement this
+    const mock = jest.spyOn(axios, 'get');
+    mock.mockImplementation(() =>
+        Promise.resolve({data: {tuits: EXAMPLE_TUITS}}));
+    const res = await findAllTuits();
+    const tuits = res.tuits;
+    render(
+        <HashRouter>
+            <Tuits tuits={tuits}/>
+        </HashRouter>);
+    const tuit = screen.getByText(/alice's 1st tuit/i);
+    expect(tuit).toBeInTheDocument();
+    mock.mockRestore();  // restore original implementation
 });
