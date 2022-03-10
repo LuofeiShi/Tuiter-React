@@ -7,15 +7,7 @@ import {HashRouter} from "react-router-dom";
 import {findAllTuits} from "../services/tuits-service";
 import axios from "axios";
 import '@testing-library/jest-dom'
-import {UserList} from "../components/profile/user-list";
 import Tuits from "../components/tuits/index";
-
-
-// jest.mock('axios');
-
-// const MOCKED_USERS = [
-//   "alice", "bob", "charlie"
-// ];
 
 const MOCKED_USERS = [
     {username: 'ellen_ripley', password: 'lv426', email: 'repley@weyland.com', _id: "123"},
@@ -23,10 +15,6 @@ const MOCKED_USERS = [
 ]
 
 const MOCKED_TUITS = [
-  "alice's tuit", "bob's tuit", "charlie's tuit"
-];
-
-const EXAMPLE_TUITS = [
     {
         _id: "001",
         tuit: "alice's 2nd tuit",
@@ -64,7 +52,7 @@ const EXAMPLE_TUITS = [
 test('tuit list renders static tuit array', () => {
     render(
         <HashRouter>
-          <Tuits tuits={EXAMPLE_TUITS}/>
+          <Tuits tuits={MOCKED_TUITS}/>
         </HashRouter>);
     const tuit = screen.getByText(/alice's 2nd tuit/i);
     expect(tuit).toBeInTheDocument();
@@ -81,10 +69,9 @@ test('tuit list renders async', async () => {
 })
 
 test('tuit list renders mocked', async () => {
-  // TODO: implement this
     const mock = jest.spyOn(axios, 'get');
     mock.mockImplementation(() =>
-        Promise.resolve({data: {tuits: EXAMPLE_TUITS}}));
+        Promise.resolve({data: {tuits: MOCKED_TUITS}}));
     const res = await findAllTuits();
     const tuits = res.tuits;
     render(
