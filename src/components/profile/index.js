@@ -90,12 +90,16 @@ const Profile = () => {
           </ul>
         </div>
       </div>
-        <Routes>
-          <Route path="/mytuits" element={<MyTuits/>}/>
-          <Route path="/tuits-and-replies" element={<TuitsAndReplies/>}/>
-          <Route path="/media" element={<Media/>}/>
-          <Route path="/likes" element={<MyLikes/>}/>
-        </Routes>
+      <Routes>
+        <Route path="/mytuits"
+               element={<MyTuits/>}/>
+        <Route path="/tuits-and-replies"
+               element={<TuitsAndReplies/>}/>
+        <Route path="/media"
+               element={<Media/>}/>
+        <Route path="/mylikes"
+               element={<MyLikes/>}/>
+      </Routes>
     </div>
   );
 }

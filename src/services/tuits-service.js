@@ -19,7 +19,7 @@ export const findTuitById = (tid) =>
         .then(response => response.data);
 
 // retrieve tuits posted by user
-export const findTuitByUser = (uid) =>
+export const findTuitsByUser = (uid) =>
     api.get(`${USERS_API}/${uid}/tuits`)
         .then(response => response.data);
 
