@@ -13,8 +13,8 @@ export const register = (user) =>
     api.post(`${SECURITY_API}/register`, user)
         .then(response => response.data);
 
-export const login = (user) =>
-    api.post(`${SECURITY_API}/login`, user)
+export const login = (credential) =>
+    api.post(`${SECURITY_API}/login`, credential)
         .then(response => response.data);
 
 export const logout = (user) =>

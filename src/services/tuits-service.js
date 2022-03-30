@@ -18,11 +18,16 @@ export const findTuitById = (tid) =>
     api.get(`${TUITS_API}/${tid}`)
         .then(response => response.data);
 
+// retrieve tuits posted by user
 export const findTuitByUser = (uid) =>
     api.get(`${USERS_API}/${uid}/tuits`)
         .then(response => response.data);
 
 export const createTuit = (uid, tuit) =>
+    api.post(`${USERS_API}/${uid}/tuits`, tuit)
+        .then(response => response.data);
+
+export const createTuitByUser = (uid, tuit) =>
     api.post(`${USERS_API}/${uid}/tuits`, tuit)
         .then(response => response.data);
 
