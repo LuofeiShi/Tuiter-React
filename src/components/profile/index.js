@@ -5,6 +5,7 @@ import * as service from "../../services/security-service"
 import TuitsAndReplies from "./tuits-and-replies";
 import Media from "./media";
 import MyLikes from "./my-likes";
+import MyDislikes from "./my-dislikes";
 const Profile = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,7 +27,8 @@ const Profile = () => {
       <div className="border border-bottom-0">
         <h4 className="p-2 mb-0 pb-0 fw-bolder">
           {profile.username}
-          <i className="fa fa-badge-check text-primary"></i></h4>
+          <i className="fa fa-badge-check text-primary"/>
+        </h4>
         <span className="ps-2">67.6K Tuits</span>
         <div className="mb-5 position-relative">
           <img className="w-100" src="../images/nasa-profile-header.jpg"/>
@@ -84,8 +86,13 @@ const Profile = () => {
             </li>
             <li className="nav-item">
               <Link to="/profile/likes"
-                    className={`nav-link ${location.pathname.indexOf('likes') >= 0 ? 'active':''}`}>
+                    className={`nav-link ${location.pathname.indexOf('/likes') >= 0 ? 'active':''}`}>
                 Likes</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/profile/dislikes">
+                    className={`nav-link ${location.pathname.indexOf('dislikes') >= 0 ? 'active' : ''}`}>
+              Dislikes</Link>
             </li>
           </ul>
         </div>
@@ -99,6 +106,8 @@ const Profile = () => {
                element={<Media/>}/>
         <Route path="/mylikes"
                element={<MyLikes/>}/>
+        <Route path="/mydislikes"
+               element={<MyDislikes/>}/>
       </Routes>
     </div>
   );
