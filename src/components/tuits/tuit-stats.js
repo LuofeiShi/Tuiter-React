@@ -8,23 +8,18 @@ const TuitStats = ({tuit, likeTuit = () => {}, dislikeTuit = () => {}}) => {
     const [isLikedByMe, setLikeTuit] = useState(false);
     const [dislikedByMe, setDislikeTuit] = useState(false);
 
-    const isTuitLikedByMe = () =>
+    const isTuitLikedByMe = async () => {
         likeService.tuitLikedByMe('me', tuit._id)   // check if the current user like the tuit
             .then((like) => {                           // if like, then set the like flag to true
-                if (like) {
-                    setLikeTuit(true);
-                } else {                                // if not, then set the like flag to false
-                    setLikeTuit(false);
-                }
+                setLikeTuit(like);
             })
-    const isTuitDislikedByMe = () =>
+        // const isLikeBool = await likeService.tuitLikedByMe("me", tuit._id);
+        // setLikeTuit(isLikeBool);
+    }
+    const isTuitDislikedByMe = async () =>
         dislikeService.tuitDislikedByMe('me', tuit._id)
             .then((dislike) => {
-                if (dislike) {
-                    setDislikeTuit(true);
-                } else {
-                    setDislikeTuit(false);
-                }
+                setDislikeTuit(dislike);
             })
     // use react effect to setup the methods
     useEffect(isTuitLikedByMe);
@@ -42,11 +37,11 @@ const TuitStats = ({tuit, likeTuit = () => {}, dislikeTuit = () => {}}) => {
         <div className="col">
           <span onClick={() => likeTuit(tuit)}>
               {
-                  isLikedByMe &&
+                  tuit.stats && isLikedByMe &&
                   <i className="fa-solid fa-thumbs-up me-1" style={{color: 'gold'}}/>
               }
               {
-                  !isLikedByMe &&
+                  tuit.stats && !isLikedByMe &&
                   <i className="fa-light fa-thumbs-up me-1"/>
               }
             {tuit.stats && tuit.stats.likes}
@@ -55,11 +50,11 @@ const TuitStats = ({tuit, likeTuit = () => {}, dislikeTuit = () => {}}) => {
           <div className="col">
               <span onClick={() => dislikeTuit(tuit)} data-testid="dislike-button">
                     {
-                        dislikedByMe &&
+                        tuit.stats && dislikedByMe &&
                         <i className="fa-solid fa-thumbs-down me-1" style={{color: 'indianred'}}/>
                     }
                   {
-                      !dislikedByMe &&
+                      tuit.stats && !dislikedByMe &&
                       <i className="fa-light fa-thumbs-down me-1"/>
                   }
                   {tuit.stats && tuit.stats.dislikes}
