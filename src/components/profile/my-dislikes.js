@@ -5,8 +5,7 @@ import * as service from "../../services/dislikes-service"
 const MyDislikes = () => {
     const [dislikedTuits, setDislikedTuits] = useState([]);
     const findTuitsDislike = () =>
-        service
-            .tuitDislikedByUser('me')
+        service.findAllTuitsDislikedByUser('me')
             .then((tuits) =>
                 setDislikedTuits(tuits));
     useEffect(findTuitsDislike, []);
