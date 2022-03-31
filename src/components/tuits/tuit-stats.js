@@ -41,18 +41,29 @@ const TuitStats = ({tuit, likeTuit = () => {}}) => {
         <div className="col">
           <span onClick={() => likeTuit(tuit)}>
               {
-                  // if not liked by me, then turn in blue
                   isLikedByMe &&
                   <i className="fa-solid fa-thumbs-up me-1" style={{color: 'blue'}}/>
               }
               {
-                  // if liked by me, show the origin color
                   !isLikedByMe &&
                   <i className="fa-light fa-thumbs-up me-1"/>
               }
             {tuit.stats && tuit.stats.likes}
           </span>
         </div>
+          <div className="col">
+              <span className="col" conClick={() => dislikeTuit(tuit)}>
+                    {
+                        dislikedByMe &&
+                        <i className="fa-solid fa-thumbs-down me-1" style={{color: 'blue'}}/>
+                    }
+                  {
+                      !dislikedByMe &&
+                      <i className="fa-light fa-thumbs-down me-1"/>
+                  }
+                  {tuit.stats && tuit.stats.likes}
+              </span>
+          </div>
         <div className="col">
           <i className="far fa-inbox-out"/>
         </div>
