@@ -46,8 +46,9 @@ const TuitStats = ({tuit, likeTuit = () => {}}) => {
                   <i className="fa-solid fa-thumbs-up me-1" style={{color: 'blue'}}/>
               }
               {
-                tuit && tuit.stats && tuit.stats.likes <= 0 &&
-                  <i className="far fa-heart me-1"/>
+                  // if liked by me, show the origin color
+                  !isLikedByMe &&
+                  <i className="fa-light fa-thumbs-up me-1"/>
               }
             {tuit.stats && tuit.stats.likes}
           </span>
