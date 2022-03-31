@@ -3,7 +3,7 @@ import {useState, useEffect} from "react";
 import * as likeService from "../../services/likes-service";
 import * as dislikeService from "../../services/dislikes-service";
 
-const TuitStats = ({tuit, likeTuit = () => {}}) => {
+const TuitStats = ({tuit, likeTuit, dislikeTuit = () => {}}) => {
     // the idea here is to decouple the like and dislike. make them atomic.
     const [isLikedByMe, setLikeTuit] = useState(false);
     const isTuitLikedByMe = () =>
@@ -52,7 +52,7 @@ const TuitStats = ({tuit, likeTuit = () => {}}) => {
           </span>
         </div>
           <div className="col">
-              <span className="col" conClick={() => dislikeTuit(tuit)}>
+              <span className="col" onClick={() => dislikeTuit(tuit)}>
                     {
                         dislikedByMe &&
                         <i className="fa-solid fa-thumbs-down me-1" style={{color: 'blue'}}/>
