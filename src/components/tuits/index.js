@@ -1,9 +1,20 @@
+/**
+ * content of tuit
+ */
 import React from "react";
 import './tuits.css';
 import Tuit from "./tuit";
 import * as likesService from "../../services/likes-service";
 import * as dislikesService from "../../services/dislikes-service";
 import * as service from "../../services/tuits-service";
+
+/**
+ * the content of tuit
+ * @param tuits tuit bodys
+ * @param refreshTuits refresh the stats and content of tuit
+ * @returns {JSX.Element} tuit content
+ * @constructor tuit constructor
+ */
 const Tuits = ({tuits = [], refreshTuits}) => {
 
     const likeTuit = (tuit) =>

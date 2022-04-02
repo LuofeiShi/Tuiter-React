@@ -1,9 +1,20 @@
+/**
+ * @file contains the stats of a tuit
+ */
 import React from "react";
 import {useState, useEffect} from "react";
 import {profile} from "../../services/security-service";
 import * as likeService from "../../services/likes-service";
 import * as dislikeService from "../../services/dislikes-service";
 
+/**
+ * update the status of a tuit
+ * @param tuit tuit body
+ * @param likeTuit stats of like a tuit
+ * @param dislikeTuit stats of dislike tuit
+ * @returns {JSX.Element} update stats
+ * @constructor constructor of tuitstats
+ */
 const TuitStats = ({tuit, likeTuit = () => {}, dislikeTuit = () => {}}) => {
     // the idea here is to decouple the like and dislike. make them atomic.
     const [isLikedByMe, setLikeTuit] = useState(false);
