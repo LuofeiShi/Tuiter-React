@@ -1,3 +1,6 @@
+/**
+ * @file contains the component of admin
+ */
 import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import * as service from "../../services/users-service";
@@ -5,11 +8,16 @@ import * as security from "../../services/security-service";
 import React from "react";
 import {UserList} from "./user-list";
 
+/**
+ * login a user
+ * @returns {JSX.Element} the status of login
+ * @constructor admin login constructor
+ */
 export const Login = () => {
     const [loginUser, setLoginUser] = useState({});
-  const [existingUsers, setExistingUsers] = useState([]);
-  const [newUser, setNewUser] = useState({});
-  const navigate = useNavigate()
+    const [existingUsers, setExistingUsers] = useState([]);
+    const [newUser, setNewUser] = useState({});
+    const navigate = useNavigate()
     const login = () =>
         security.login(loginUser)
             .then((user) => navigate('/profile'))
