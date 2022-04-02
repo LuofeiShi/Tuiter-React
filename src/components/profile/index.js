@@ -1,5 +1,6 @@
-
-
+/**
+ * @file the profile index content
+ */
 import React, {useEffect, useState} from "react";
 import MyTuits from "./my-tuits";
 import {Link, Route, Routes, useNavigate, useLocation} from "react-router-dom";
@@ -9,6 +10,11 @@ import Media from "./media";
 import MyLikes from "./my-likes";
 import MyDislikes from "./my-dislikes";
 
+/**
+ * export the profile contents
+ * @returns {JSX.Element} profile components
+ * @constructor profile constructor
+ */
 const Profile = () => {
   const navigate = useNavigate();
   const location = useLocation();
