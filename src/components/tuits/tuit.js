@@ -1,9 +1,21 @@
+/**
+ * @file The functionalities of a tuit
+ */
 import React from "react";
 import TuitStats from "./tuit-stats";
 import TuitImage from "./tuit-image";
 import TuitVideo from "./tuit-video";
 import {useNavigate, Link} from "react-router-dom";
 
+/**
+ * export the functionalities of a tuit
+ * @param tuit find tuit by id
+ * @param deleteTuit deliete a tuit
+ * @param likeTuit like a tuit
+ * @param dislikeTuit dislike a tuit
+ * @returns {JSX.Element} udpated component
+ * @constructor constructor of a tuit
+ */
 const Tuit = ({tuit, deleteTuit, likeTuit, dislikeTuit}) => {
     const navigate = useNavigate();
     const daysOld = (tuit) => {

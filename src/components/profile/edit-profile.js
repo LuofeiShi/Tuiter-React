@@ -1,6 +1,14 @@
+/**
+ * @file the edit profile front-end section
+ */
 import React from "react";
 import {Link} from "react-router-dom";
 
+/**
+ * component of edit profile
+ * @returns {JSX.Element} content of eidt profile
+ * @constructor constructor profile
+ */
 const EditProfile = () => {
     return(
       <div className="ttr-edit-profile">
