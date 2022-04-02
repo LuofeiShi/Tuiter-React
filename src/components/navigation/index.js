@@ -1,7 +1,15 @@
+/**
+ * contains components of 'navigation' tab
+ */
 import React from "react";
 import "./navigation.css";
 import {useLocation, Link} from "react-router-dom";
 
+/**
+ *  show the component of navigation tab
+ * @returns {JSX.Element} content of navigation tab
+ * @constructor constructor of navigation
+ */
 function Navigation() {
   const {pathname} = useLocation();
   // console.log(location.pathname);

@@ -1,9 +1,17 @@
+/**
+ * @file contains the component of home screen
+ */
 import React from "react";
 import Tuits from "../tuits/index";
 import * as service from "../../services/tuits-service";
 import {useEffect, useState} from "react";
 import {useLocation, useParams} from "react-router-dom";
 
+/**
+ * get the content of home page
+ * @returns {JSX.Element} the content of home page
+ * @constructor home page constructor
+ */
 const Home = () => {
   const location = useLocation();
   const {uid} = useParams();
