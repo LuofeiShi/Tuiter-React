@@ -1,3 +1,6 @@
+/**
+ * @file contains the content of tuiter
+ */
 import React from "react";
 import Navigation from "../navigation";
 import WhatsHappening from "../whats-happening";
@@ -16,6 +19,11 @@ import {Login} from "../profile/login";
 import Signup from "../profile/signup";
 import TuitScreen from "../tuits/tuit-screen";
 
+/**
+ * contains the component of each tuiter
+ * @returns {JSX.Element} content of a tuiter
+ * @constructor constructor of the tuiter
+ */
 function Tuiter () {
   return(
     <HashRouter>
