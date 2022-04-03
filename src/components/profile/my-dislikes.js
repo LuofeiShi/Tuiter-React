@@ -4,15 +4,16 @@ import * as service from "../../services/dislikes-service"
 
 const MyDislikes = () => {
     const [dislikedTuits, setDislikedTuits] = useState([]);
-    const findTuitsDislike = async () =>
-        await service.findAllTuitsDislikedByUser('me')
+    const findTuitsIDislike = async () =>
+        await service.findAllTuitsDislikedByUser("me")
             .then((tuits) =>
                 setDislikedTuits(tuits));
-    useEffect(findTuitsDislike, []);
+    useEffect(findTuitsIDislike, []);
 
     return (
         <div>
-            <Tuits tuits={dislikedTuits} refreshTuits={findTuitsDislike}/>
+            <Tuits tuits={dislikedTuits}
+                   refreshTuits={findTuitsIDislike}/>
         </div>
     );
 };
